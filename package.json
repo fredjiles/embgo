@@ -1,0 +1,24 @@
+{
+  "name": "embgo",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "nodemon -w controllers -w views -w models -w ./ server.js"
+  },
+  "dependencies": {
+    "express": "3.0.6",
+    "jade": "*",
+    "less-middleware": "*",
+    "hbs": "~2.0.1",
+    "nodemon": "~0.6.23",
+    "mocha": "~1.8.1",
+    "mockery": "~1.4.0",
+    "request": "~2.12.0",
+    "should": "~1.2.1",
+    "grunt-neuter": "~0.3.0",
+    "grunt-contrib-watch": "~0.1.4",
+    "grunt": "~0.4.0rc5",
+    "grunt-ember-templates": "~0.4.3rc7",
+    "mongodb": "~1.2.12"
+  }
+}

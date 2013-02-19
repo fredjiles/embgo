@@ -1,0 +1,25 @@
+#sideNav li a{
+    border: 1px solid #cccccc;
+    margin: 0 0 -1px;
+    padding: 8px 14px;
+}
+
+#sideNav li {
+    line-height: 20px;
+}
+
+#sideNav .icon-chevron-right{
+    float: right;
+    margin-top: 2px;
+    margin-right: -6px;
+}
+
+#content{
+    border:1px solid #cccccc;
+    min-height: 400px;
+    padding: 8px 10px;
+
+}
+#content h2 {
+    margin-top:0;
+}
