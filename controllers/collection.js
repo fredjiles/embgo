@@ -1,5 +1,7 @@
 var mongodb = require('mongodb');
 
+var collections = require('../lib/collections');
+
 var connect = function (dbName, callback) {
     mongodb.Db.connect("mongodb://localhost/" + dbName, function (err, database) {
         callback(database);
@@ -7,22 +9,36 @@ var connect = function (dbName, callback) {
 };
 
 
+function cleanNames(database, name) {
+
+    return name;
+}
 /*
  * GET collections listing.
  */
 exports.index = function (req, res) {
-    var out = [];
-    connect(req.params.database, function (db) {
-        db.collectionNames(function (err, names) {
-            names.forEach(function (collection) {
-                console.log(collection.name);
-            });
-            res.send({collections:names});
-            db.close();
+    var response = {collections: []};
+    console.log(req.params.database);
+    collections.collectionsForDatabase(req.params.database, function (collections) {
+
+        collections.forEach(function(collection){
+
         });
-    });
+        res.send(response);
+    })
 };
 
+
+
+/*
+ * GET collections listing.
+ */
+exports.show = function (req, res) {
+    console.log(req.params.database);
+    collections.collectionsForDatabase(req.params.database, function (collections) {
+        res.send({collections: collections});
+    })
+};
 
 /*
  * POST users create

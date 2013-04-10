@@ -1,1 +1,9 @@
-<h2>Database</h2>
+<h2>Database: {{controller.content.name}}</h2>
+
+<ul>
+	{{#each collection in controller.content.collections }}
+		<li>{{ collection.name }}</li>
+	{{/each }}
+</ul>
+
+{{outlet}}

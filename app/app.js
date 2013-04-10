@@ -7,19 +7,29 @@ var App = Ember.Application.create({
 window.App = App;
 App.CurrentUser = null;
 
+//******************* Models *********************//
+require('app/models/database');
+require('app/models/collection');
+require('app/models/document');
+
+DS.RESTAdapter.map('App.Database', {
+    collections: { embedded: 'load' }
+
+});
+
+DS.RESTAdapter.map('App.Collection', {
+});
+
 App.store = DS.Store.create({
     revision:11,
     adapter:DS.RESTAdapter.create({ namespace: 'api', bulkCommit:false })
 });
 
-App.store.adapter.serializer.primaryKey = function (type) {
-    return '_id';
-};
 
-//******************* Models *********************//
-require('app/models/database');
-require('app/models/collection');
-require('app/models/document');
+
+App.store.adapter.serializer.primaryKey = function (type) {
+    return 'name';
+};
 
 //******************************** Routing *************//
 require('app/routes');

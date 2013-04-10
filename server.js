@@ -6,11 +6,13 @@
 var cp = require('child_process');
 var grunt = cp.spawn('grunt', [ 'default']);
 
+/*
 grunt.stdout.on('data', function(data) {
     // relay output to console
     console.log("%s", data)
 });
 
+*/
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -40,6 +42,7 @@ app.configure('development', function(){
 });
 
 app.get('/api/databases', databaseController.index);
+app.get('/api/databases/:name', databaseController.read);
 app.post('/api/databases', databaseController.create);
 app.delete('/api/databases/:name?', databaseController.remove);
 app.get('/api/collections/:database?', collectionController.index);
